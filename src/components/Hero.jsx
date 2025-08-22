@@ -50,7 +50,7 @@ function Hero() {
                     </a>
                   </div>
                   <div>
-                    <a href="/web-portifolio/curri_kauanzera.pdf" target="_blank" rel="noopener noreferrer" className={primaryBtnClasses}>
+                    <a href="/web-portifolio/img/curri_kauanzera.pdf" target="_blank" rel="noopener noreferrer" className={primaryBtnClasses}>
                       <DocumentIcon /> Currículo
                     </a>
                   </div>
@@ -59,7 +59,7 @@ function Hero() {
 
               {/* LAYOUT PARA DESKTOP (Linha única) - Visível apenas no desktop */}
               <div className="hidden md:flex justify-start gap-4">
-                <a href="/web-portifolio/curri_kauanzera.pdf" target="_blank" rel="noopener noreferrer" className={primaryBtnClasses}>
+                <a href="/web-portifolio/img/curri_kauanzera.pdf" target="_blank" rel="noopener noreferrer" className={primaryBtnClasses}>
                   <DocumentIcon /> Currículo
                 </a>
                 <a href="https://github.com/kauanfeelipe" target="_blank" rel="noopener noreferrer" className={secondaryBtnClasses}>
@@ -76,7 +76,7 @@ function Hero() {
           <div className="hidden md:flex md:w-1/2 justify-center mt-10 md:mt-0">
             <div className="relative w-80 h-80">
               <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-blue-600 rounded-full blur-xl opacity-70"></div>
-              <img src="/minha-foto.png" alt="Foto de Kauan Felipe" className="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl" />
+              <img src="/web-portifolio/img/minha-foto.png" alt="Foto de Kauan Felipe" className="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl" />
             </div>
           </div>
         </div>
