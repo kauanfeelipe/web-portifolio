@@ -28,7 +28,7 @@ function Hero() {
             <div className="md:hidden my-8">
               <div className="relative w-64 h-64 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-blue-600 rounded-full blur-xl opacity-70"></div>
-                <img src="/minha-foto.png" alt="Foto de Kauan Felipe" className="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl" />
+                <img src="/web-portifolio/minha-foto.png" alt="Foto de Kauan Felipe" className="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl" />
               </div>
             </div>
 
