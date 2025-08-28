@@ -185,3 +185,4 @@ export default {
 ---
 
 ⭐ **Se este projeto te ajudou, considere dar uma estrela!**
+
