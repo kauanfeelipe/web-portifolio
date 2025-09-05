@@ -50,4 +50,4 @@ npm run deploy
 
 ---
 
-⭐ **Desenvolvido por Kauan Felipe - 2024**
+⭐ **Desenvolvido por Kauan Felipe - 2024** 

@@ -31,7 +31,7 @@ const DownloadIcon = () => (
 
 function Hero() {
   return (
-    <section id="home" className="min-h-screen relative flex items-center overflow-hidden pt-20 md:pt-24" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
+    <section id="home" className="min-h-screen relative flex items-center overflow-hidden pt-32 xs:pt-28 sm:pt-24 md:pt-28 lg:pt-20" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
       {/* Floating Particles Background */}
       <FloatingParticles />
       
@@ -297,32 +297,6 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <motion.div
-              className="w-1 h-3 bg-white/60 rounded-full mt-2"
-              animate={{
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
