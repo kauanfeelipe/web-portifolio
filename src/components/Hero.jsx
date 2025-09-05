@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 import { 
   FloatingParticles, 
   ScrollReveal, 
@@ -31,7 +32,7 @@ const DownloadIcon = () => (
 
 function Hero() {
   return (
-    <section id="home" className="min-h-screen relative flex items-center overflow-hidden pt-32 xs:pt-28 sm:pt-24 md:pt-28 lg:pt-20" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
+    <section id="home" className="min-h-screen relative flex items-center overflow-hidden pt-20 md:pt-24 lg:pt-20" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
       {/* Floating Particles Background */}
       <FloatingParticles />
       
@@ -48,18 +49,23 @@ function Hero() {
             initial="hidden"
             animate="visible"
           >
-            {/* Name with Glitch Effect */}
+            {/* Name with TypeAnimation */}
             <motion.div variants={staggerItem}>
-              <GlitchText className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                <span style={{ 
-                  background: 'var(--gradient-primary)', 
-                  WebkitBackgroundClip: 'text', 
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>
-                  Kauan Felipe
-                </span>
-              </GlitchText>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+                <TypeAnimation 
+                  sequence={['Kauan Felipe', 1000, 'Kauan Felipe', 1000]} 
+                  wrapper="span" 
+                  speed={80} 
+                  repeat={Infinity}
+                  className="font-mono"
+                  style={{ 
+                    background: 'var(--gradient-primary)', 
+                    WebkitBackgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}
+                />
+              </h1>
             </motion.div>
 
             {/* Animated Subtitle */}

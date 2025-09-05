@@ -47,9 +47,9 @@ function ProjectCard({ title, description, tags, img, repoLink, siteLink }) {
               {/* Image Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              {/* Floating Action Buttons */}
+              {/* Floating Action Buttons - Desktop apenas */}
               <motion.div
-                className="absolute top-4 right-4 flex gap-2"
+                className="absolute top-4 right-4 flex gap-2 hidden md:flex"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ 
                   opacity: isHovered ? 1 : 0, 
@@ -110,8 +110,38 @@ function ProjectCard({ title, description, tags, img, repoLink, siteLink }) {
               </motion.div>
             </div>
 
+            {/* Mobile Action Buttons - Visíveis apenas em mobile */}
+            <div className="md:hidden p-4 pb-2">
+              <div className="flex justify-center gap-3">
+                {siteLink && (
+                  <a
+                    href={siteLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass p-3 rounded-lg hover:scale-110 transition-transform flex items-center gap-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLinkIcon />
+                    <span className="text-sm font-medium">Ver Site</span>
+                  </a>
+                )}
+                {repoLink && (
+                  <a
+                    href={repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass p-3 rounded-lg hover:scale-110 transition-transform flex items-center gap-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <CodeIcon />
+                    <span className="text-sm font-medium">Código</span>
+                  </a>
+                )}
+              </div>
+            </div>
+
             {/* Content */}
-            <div className="p-6 flex flex-col flex-grow">
+            <div className="p-6 pt-2 md:pt-6 flex flex-col flex-grow">
               {/* Title */}
               <motion.h3 
                 className="text-xl lg:text-2xl font-bold mb-3 bg-gradient-primary bg-clip-text text-transparent"

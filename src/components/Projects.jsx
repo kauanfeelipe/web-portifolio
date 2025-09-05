@@ -173,15 +173,25 @@ function Projects() {
       <style jsx>{`
         .custom-bullet {
           background: var(--color-text-muted) !important;
-          opacity: 0.4 !important;
-          width: 12px !important;
-          height: 12px !important;
+          opacity: 0.5 !important;
+          width: 14px !important;
+          height: 14px !important;
+          margin: 0 6px !important;
+          border-radius: 50% !important;
           transition: all 0.3s ease !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
         }
         .custom-bullet-active {
-          background: var(--color-primary-violet) !important;
+          background: linear-gradient(135deg, var(--color-primary-violet), var(--color-electric-blue)) !important;
           opacity: 1 !important;
-          transform: scale(1.3) !important;
+          transform: scale(1.4) !important;
+          box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4) !important;
+        }
+        .swiper-pagination {
+          bottom: 16px !important;
+        }
+        .swiper-pagination-bullet {
+          cursor: pointer !important;
         }
       `}</style>
     </section>

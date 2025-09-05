@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { TypeAnimation } from 'react-type-animation';
 
 // Ícones para o menu hambúrguer
 const MenuIcon = () => (
@@ -30,17 +29,15 @@ function Navbar() {
   return (
     <nav className={navbarClasses}>
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-xl md:text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
+        {/* Logo/Nome - apenas em desktop */}
+        <div className="hidden md:block text-xl md:text-2xl font-bold font-mono" style={{ color: 'var(--color-text-primary)' }}>
           <a href="#home" onClick={() => setIsMenuOpen(false)} className="link-underline">
-            <TypeAnimation 
-              sequence={['<Kauan Felipe />', 2000, '<Desenvolvedor />', 2000]} 
-              wrapper="span" 
-              speed={50} 
-              repeat={Infinity}
-              className="font-mono"
-            />
+            &lt;Kauan Felipe /&gt;
           </a>
         </div>
+        
+        {/* Espaço flexível para centralizar o menu mobile */}
+        <div className="flex-1 md:hidden"></div>
 
         {/* Links para Desktop */}
         <div className="hidden md:flex space-x-8">
@@ -59,7 +56,7 @@ function Navbar() {
         <div className="md:hidden">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="p-2 rounded-lg glass glass-hover"
+            className="p-2 rounded-lg glass glass-hover md:hidden"
             style={{ color: 'var(--color-text-primary)' }}
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
