@@ -23,40 +23,77 @@ function Navbar() {
   }, []);
 
   const navbarClasses = `
-    fixed w-full top-0 left-0 z-50 transition-colors duration-300 ease-in-out
-    ${isScrolled || isMenuOpen ? 'bg-slate-900 shadow-lg' : 'bg-transparent'}
+    fixed w-full top-0 left-0 z-50 transition-all duration-300 ease-in-out
+    ${isScrolled || isMenuOpen ? 'glass shadow-2xl' : 'bg-transparent'}
   `;
 
   return (
     <nav className={navbarClasses}>
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-xl md:text-2xl font-bold text-white">
-          <a href="#home" onClick={() => setIsMenuOpen(false)}>
-            <TypeAnimation sequence={['<Kauan Felipe />', 2000, '<Desenvolvedor />', 2000]} wrapper="span" speed={50} repeat={Infinity} />
+        <div className="text-xl md:text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
+          <a href="#home" onClick={() => setIsMenuOpen(false)} className="link-underline">
+            <TypeAnimation 
+              sequence={['<Kauan Felipe />', 2000, '<Desenvolvedor />', 2000]} 
+              wrapper="span" 
+              speed={50} 
+              repeat={Infinity}
+              className="font-mono"
+            />
           </a>
         </div>
 
-        {/* Links para Desktop - AQUI FOI O AJUSTE */}
-        <div className="hidden md:flex space-x-6">
-          <a href="#projetos" className="text-gray-300 hover:text-white transition-colors">Projetos</a>
-          <a href="#formacao" className="text-gray-300 hover:text-white transition-colors">Formação</a>
-          <a href="#contato" className="text-gray-300 hover:text-white transition-colors">Contato</a>
+        {/* Links para Desktop */}
+        <div className="hidden md:flex space-x-8">
+          <a href="#projetos" className="link-underline font-medium" style={{ color: 'var(--color-text-secondary)' }}>
+            Projetos
+          </a>
+          <a href="#formacao" className="link-underline font-medium" style={{ color: 'var(--color-text-secondary)' }}>
+            Jornada
+          </a>
+          <a href="#contato" className="link-underline font-medium" style={{ color: 'var(--color-text-secondary)' }}>
+            Contato
+          </a>
         </div>
 
         {/* Botão do Menu Mobile */}
         <div className="md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="p-2 rounded-lg glass glass-hover"
+            style={{ color: 'var(--color-text-primary)' }}
+          >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
       </div>
 
-      {/* Menu Mobile Dropdown - AQUI FOI O AJUSTE */}
+      {/* Menu Mobile Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden bg-slate-900">
-          <a href="#projetos" onClick={() => setIsMenuOpen(false)} className="block text-center py-4 text-gray-300 hover:bg-slate-800 transition-colors">Projetos</a>
-          <a href="#formacao" onClick={() => setIsMenuOpen(false)} className="block text-center py-4 text-gray-300 hover:bg-slate-800 transition-colors">Formação</a>
-          <a href="#contato" onClick={() => setIsMenuOpen(false)} className="block text-center py-4 text-gray-300 hover:bg-slate-800 transition-colors">Contato</a>
+        <div className="md:hidden glass border-t border-white/10">
+          <a 
+            href="#projetos" 
+            onClick={() => setIsMenuOpen(false)} 
+            className="block text-center py-4 font-medium transition-colors hover:bg-white/5"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            Projetos
+          </a>
+          <a 
+            href="#formacao" 
+            onClick={() => setIsMenuOpen(false)} 
+            className="block text-center py-4 font-medium transition-colors hover:bg-white/5"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            Jornada
+          </a>
+          <a 
+            href="#contato" 
+            onClick={() => setIsMenuOpen(false)} 
+            className="block text-center py-4 font-medium transition-colors hover:bg-white/5"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            Contato
+          </a>
         </div>
       )}
     </nav>

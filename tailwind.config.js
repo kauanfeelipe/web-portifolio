@@ -6,7 +6,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}", // Garanta que esta linha exista
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'xs': '480px',
+      },
+    },
   },
   plugins: [],
 }

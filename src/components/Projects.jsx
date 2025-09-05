@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
+import { ScrollReveal, staggerContainer, staggerItem } from './AnimationSystem';
 
 // Importações do Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -84,41 +86,104 @@ const projectData = [
 ];
 
 function Projects() {
-  return (
-    <section id="projetos" className="bg-slate-950 pt-20 pb-8 md:pb-20">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-extrabold text-center text-white mb-12">
-          Meus Projetos
-        </h2>
 
-        {/* Grid para Desktop */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectData.map((proj) => (
-            <ProjectCard key={proj.title} {...proj} />
-          ))}
+  return (
+    <section 
+      id="projetos" 
+      className="py-20 relative overflow-hidden"
+      style={{ backgroundColor: 'var(--color-bg-surface)' }}
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-secondary rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Header Section */}
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              Meus{' '}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Projetos
+              </span>
+            </motion.h2>
+            <motion.p 
+              className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 md:px-0"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              Projetos desenvolvidos utilizando diferentes tecnologias e abordagens.
+            </motion.p>
+          </div>
+        </ScrollReveal>
+
+
+        {/* Projects Grid - Desktop */}
+        <div className="hidden md:block">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {projectData.map((proj, index) => (
+              <motion.div
+                key={proj.title}
+                variants={staggerItem}
+                custom={index}
+              >
+                <ProjectCard {...proj} />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Carrossel para Mobile */}
+        {/* Projects Carousel - Mobile */}
         <div className="md:hidden">
           <Swiper
             modules={[Pagination]}
-            spaceBetween={25}
-            slidesPerView={'auto'}
+            spaceBetween={20}
+            slidesPerView={1.1}
             centeredSlides={true}
-            pagination={{ clickable: true }}
-            className="pb-10"
+            pagination={{ 
+              clickable: true,
+              dynamicBullets: true,
+              bulletClass: 'custom-bullet',
+              bulletActiveClass: 'custom-bullet-active'
+            }}
+            className="pb-12"
           >
             {projectData.map((proj) => (
-              // AQUI ESTÁ A CORREÇÃO: Garantindo que o style com a largura está presente
-              <SwiperSlide key={proj.title} style={{ width: '100%', height: 'auto' }}>
-                <div className='h-full'>
+              <SwiperSlide key={`mobile-${proj.title}`}>
+                <div className="h-full px-2">
                   <ProjectCard {...proj} />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
+
       </div>
+
+      {/* Custom Swiper Styles */}
+      <style jsx>{`
+        .custom-bullet {
+          background: var(--color-text-muted) !important;
+          opacity: 0.4 !important;
+          width: 12px !important;
+          height: 12px !important;
+          transition: all 0.3s ease !important;
+        }
+        .custom-bullet-active {
+          background: var(--color-primary-violet) !important;
+          opacity: 1 !important;
+          transform: scale(1.3) !important;
+        }
+      `}</style>
     </section>
   );
 }

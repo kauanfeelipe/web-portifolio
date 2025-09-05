@@ -9,15 +9,15 @@ import Footer from './components/Footer';   // Importe o Rodapé
 
 function App() {
   return (
-    <div className="bg-slate-950 text-white">
+    <div className="min-h-screen font-inter" style={{ backgroundColor: 'var(--color-bg-primary)', color: 'var(--color-text-primary)' }}>
       <Navbar />
       <main>
         <Hero />
         <Projects />
         <About />
-        <Contact /> {/* Adicione a seção de Contato */}
+        <Contact />
       </main>
-      <Footer /> {/* Adicione o Rodapé */}
+      <Footer />
     </div>
   );
 }
