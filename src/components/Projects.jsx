@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import { ScrollReveal, staggerContainer, staggerItem } from './AnimationSystem';
@@ -86,6 +86,7 @@ const projectData = [
 ];
 
 function Projects() {
+  const paginationRef = useRef(null);
 
   return (
     <section 
@@ -151,9 +152,19 @@ function Projects() {
             centeredSlides={true}
             pagination={{ 
               clickable: true,
-              dynamicBullets: true,
-              bulletClass: 'custom-bullet',
-              bulletActiveClass: 'custom-bullet-active'
+              dynamicBullets: true
+            }}
+            onBeforeInit={(swiper) => {
+              if (paginationRef.current) {
+                swiper.params.pagination.el = paginationRef.current;
+              }
+            }}
+            onSwiper={(swiper) => {
+              if (swiper.pagination && paginationRef.current) {
+                swiper.pagination.init();
+                swiper.pagination.render();
+                swiper.pagination.update();
+              }
             }}
             className="pb-12"
           >
@@ -165,35 +176,13 @@ function Projects() {
               </SwiperSlide>
             ))}
           </Swiper>
+          {/* Pagination Dots below cards */}
+          <div ref={paginationRef} className="projects-pagination swiper-pagination flex justify-center mt-4" />
         </div>
 
       </div>
 
-      {/* Custom Swiper Styles */}
-      <style jsx>{`
-        .custom-bullet {
-          background: var(--color-text-muted) !important;
-          opacity: 0.5 !important;
-          width: 14px !important;
-          height: 14px !important;
-          margin: 0 6px !important;
-          border-radius: 50% !important;
-          transition: all 0.3s ease !important;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-        }
-        .custom-bullet-active {
-          background: linear-gradient(135deg, var(--color-primary-violet), var(--color-electric-blue)) !important;
-          opacity: 1 !important;
-          transform: scale(1.4) !important;
-          box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4) !important;
-        }
-        .swiper-pagination {
-          bottom: 16px !important;
-        }
-        .swiper-pagination-bullet {
-          cursor: pointer !important;
-        }
-      `}</style>
+      {/* Custom Swiper Styles moved to global CSS */}
     </section>
   );
 }
