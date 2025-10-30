@@ -11,6 +11,14 @@ import 'swiper/css/pagination';
 
 // SEUS DADOS DOS PROJETOS
 const projectData = [
+  {
+    title: 'Explanatory Translator',
+    description: 'a API recebe um texto em português e, usando IA (Gemini), devolve uma análise didática completa: A tradução natural para o inglês. Uma análise gramatical palavra por palavra.Uma lista de erros comuns que brasileiros cometeriam (e como evitar).',
+    tags: ['Python', 'FastAPI', 'Docker'],
+    img: '/web-portifolio/img/translator.png',
+    repoLink: 'https://github.com/kauanfeelipe/explanatory-translator-api',
+    siteLink: 'https://github.com/kauanfeelipe/explanatory-translator-api'
+  },
     {
         title: 'Study Terminal',
         description: 'Aplicação web com tema terminal, desenvolvida para aprendizado e utilidade na faculdade, permitindo a execução de codigos python e salvar arquivos.',
