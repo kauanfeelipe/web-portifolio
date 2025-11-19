@@ -13,15 +13,15 @@ const formationData = [
   },
   {
     level: 'Curso Online',
-    course: 'ReactJS / Tailwind CSS',
-    institution: 'Udemy',
+    course: 'Formação Backend JAVA',
+    institution: 'DIO',
     period: 'Cursando - 2025',
   },
   {
     level: 'Curso Online',
-    course: 'Python do zero ao Hacking Avançado',
-    institution: 'Ackerdemy',
-    period: 'Cursando 2024 até o momento',
+    course: 'ReactJS / Tailwind CSS',
+    institution: 'Udemy',
+    period: 'Cursando - 2025',
   },
   {
     level: 'Curso Técnico',

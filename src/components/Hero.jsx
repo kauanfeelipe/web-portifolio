@@ -5,11 +5,6 @@ import {
   FloatingParticles, 
   ScrollReveal, 
   MagneticButton, 
-  GlitchText, 
-  TypewriterText,
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
   staggerContainer,
   staggerItem
 } from './AnimationSystem';
@@ -68,17 +63,13 @@ function Hero() {
               </h1>
             </motion.div>
 
-            {/* Animated Subtitle */}
+            {/* Subtitle */}
             <motion.div 
               variants={staggerItem}
               className="mt-4 text-xl md:text-2xl font-semibold"
               style={{ color: 'var(--color-electric-blue)' }}
             >
-              <TypewriterText 
-                text="Desenvolvedor em Formação" 
-                delay={500}
-                speed={50}
-              />
+              <span>Desenvolvedor de Software</span>
             </motion.div>
 
             {/* Mobile Photo */}

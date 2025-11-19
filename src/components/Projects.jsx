@@ -1,16 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import { ScrollReveal, staggerContainer, staggerItem } from './AnimationSystem';
 
-// Importações do Swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
 // SEUS DADOS DOS PROJETOS
 const projectData = [
+  {
+    title: 'CF Drones',
+    description: 'Homepage desenvolvida para o meu primeiro cliente, a CF Drones — uma empresa especializada em serviços agrícolas com drones. Criei a estrutura, layout e conteúdo principal do site, destacando os serviços, diferenciais e imagens dos drones em operação no campo.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    img: '/web-portifolio/img/cf-drones.png',
+    repoLink: 'https://cfagricoladrone.vercel.app/',
+    siteLink: 'https://cfagricoladrone.vercel.app/'
+  },
   {
     title: 'Explanatory Translator',
     description: 'a API recebe um texto em português e, usando IA (Gemini), devolve uma análise didática completa: A tradução natural para o inglês. Uma análise gramatical palavra por palavra.Uma lista de erros comuns que brasileiros cometeriam (e como evitar).',
@@ -93,8 +95,12 @@ const projectData = [
       }
 ];
 
+// Memoizar o componente ProjectCard para evitar re-renders desnecessários
+const MemoizedProjectCard = React.memo(ProjectCard);
+
 function Projects() {
-  const paginationRef = useRef(null);
+  // Memoizar os dados dos projetos para evitar recriação
+  const memoizedProjectData = useMemo(() => projectData, []);
 
   return (
     <section 
@@ -139,53 +145,29 @@ function Projects() {
             initial="hidden"
             animate="visible"
           >
-            {projectData.map((proj, index) => (
+            {memoizedProjectData.map((proj, index) => (
               <motion.div
                 key={proj.title}
                 variants={staggerItem}
                 custom={index}
               >
-                <ProjectCard {...proj} />
+                <MemoizedProjectCard {...proj} />
               </motion.div>
             ))}
           </motion.div>
         </div>
 
-        {/* Projects Carousel - Mobile */}
+        {/* Projects Scroll Horizontal - Mobile */}
         <div className="md:hidden">
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={20}
-            slidesPerView={1.1}
-            centeredSlides={true}
-            pagination={{ 
-              clickable: true,
-              dynamicBullets: true
-            }}
-            onBeforeInit={(swiper) => {
-              if (paginationRef.current) {
-                swiper.params.pagination.el = paginationRef.current;
-              }
-            }}
-            onSwiper={(swiper) => {
-              if (swiper.pagination && paginationRef.current) {
-                swiper.pagination.init();
-                swiper.pagination.render();
-                swiper.pagination.update();
-              }
-            }}
-            className="pb-12"
-          >
-            {projectData.map((proj) => (
-              <SwiperSlide key={`mobile-${proj.title}`}>
-                <div className="h-full px-2">
-                  <ProjectCard {...proj} />
+          <div className="projects-scroll-container">
+            <div className="projects-scroll-wrapper">
+              {memoizedProjectData.map((proj, index) => (
+                <div key={`mobile-${proj.title}`} className="projects-scroll-item">
+                  <MemoizedProjectCard {...proj} />
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          {/* Pagination Dots below cards */}
-          <div ref={paginationRef} className="projects-pagination swiper-pagination flex justify-center mt-4" />
+              ))}
+            </div>
+          </div>
         </div>
 
       </div>

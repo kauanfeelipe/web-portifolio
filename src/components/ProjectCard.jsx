@@ -40,6 +40,8 @@ function ProjectCard({ title, description, tags, img, repoLink, siteLink }) {
                 src={img} 
                 alt={`Projeto ${title}`}
                 className="w-full aspect-video object-cover"
+                loading="lazy"
+                decoding="async"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               />

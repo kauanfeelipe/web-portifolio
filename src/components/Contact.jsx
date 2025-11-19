@@ -98,41 +98,9 @@ function Contact() {
           </motion.div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {/* WhatsApp Card */}
-            <motion.div variants={staggerItem}>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-interactive p-4 md:p-6 text-center group block"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(18, 140, 126, 0.05))',
-                  border: '1px solid rgba(37, 211, 102, 0.3)'
-                }}
-              >
-                <div className="flex flex-col items-center gap-3">
-                  <div 
-                    className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
-                    style={{ backgroundColor: '#25D366' }}
-                  >
-                    <WhatsAppIcon />
-                  </div>
-                  <h3 className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-                    WhatsApp
-                  </h3>
-                  <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                    (16) 99372-0553
-                  </p>
-                  <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400">
-                    Preferido
-                  </span>
-                </div>
-              </a>
-            </motion.div>
-
+          <div className="flex justify-center">
             {/* Email Card */}
-            <motion.div variants={staggerItem}>
+            <motion.div variants={staggerItem} className="max-w-md w-full">
               <a
                 href="mailto:kauan_nup@outlook.com"
                 className="card-interactive p-4 md:p-6 text-center group block"

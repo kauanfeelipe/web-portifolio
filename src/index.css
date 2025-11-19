@@ -283,33 +283,60 @@ body {
     background: var(--color-primary-violet);
   }
 
-  /* Swiper pagination (mobile projects) */
-  .projects-pagination {
+  /* Scroll Horizontal Simples - Mobile Projects */
+  .projects-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    /* Esconder scrollbar mas manter funcionalidade */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(124, 58, 237, 0.5) transparent;
+  }
+
+  .projects-scroll-container::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .projects-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .projects-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.5);
+    border-radius: 10px;
+  }
+
+  .projects-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.7);
+  }
+
+  .projects-scroll-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    height: 24px;
-    position: relative;
-    z-index: 30;
+    gap: 1.25rem;
+    padding: 0.5rem 1rem 1rem 1rem;
+    width: max-content;
   }
 
-  .projects-pagination .swiper-pagination-bullet {
-    background: #ffffff;
-    opacity: 0.7;
-    width: 10px;
-    height: 10px;
-    margin: 0 6px;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  .projects-scroll-item {
+    flex: 0 0 auto;
+    width: calc(100vw - 3rem);
+    max-width: 400px;
+    min-width: 280px;
   }
 
-  .projects-pagination .swiper-pagination-bullet-active {
-    background: #ffffff;
-    opacity: 1;
-    transform: scale(1.25);
-    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
+  /* Snap scrolling para melhor UX */
+  @supports (scroll-snap-type: x mandatory) {
+    .projects-scroll-container {
+      scroll-snap-type: x mandatory;
+    }
+
+    .projects-scroll-item {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
   }
 }
 
