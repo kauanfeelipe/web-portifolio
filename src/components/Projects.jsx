@@ -14,6 +14,22 @@ const projectData = [
     siteLink: 'https://cfagricoladrone.vercel.app/'
   },
   {
+        title: 'ctD Valorant API',
+        description: 'Este projeto é uma aplicação web desenvolvida para consumir a Valorant API e apresentar dados do jogo de forma visualmente impactante. O objetivo principal foi praticar o consumo de APIs REST, implementação de design responsivo e otimização de performance em React.',
+        tags: ['React', 'TypeScript', 'Tailwind CSS'],
+        img: '/web-portifolio/img/prj10.png',
+        repoLink: 'https://github.com/kauanfeelipe/projeto-valorant',
+        siteLink: 'https://kauanfeelipe.github.io/projeto-valorant/'
+  },
+  {
+    title: 'Web Portifólio cs1.6',
+    description: 'Portfólio desenvolvido com o tema do jogo Counter-Strike 1.6, utilizando React, JavaScript e CSS. O portfólio é responsivo e possui uma navegação intuitiva.',
+    tags: ['React', 'JavaScript', 'CSS'],
+    img: '/web-portifolio/img/prj03.png',
+    repoLink: 'https://github.com/kauanfeelipe/portifolioo',
+    siteLink: 'https://kauanfeelipe.github.io/portifolioo/'
+  },
+  {
     title: 'Explanatory Translator',
     description: 'a API recebe um texto em português e, usando IA (Gemini), devolve uma análise didática completa: A tradução natural para o inglês. Uma análise gramatical palavra por palavra.Uma lista de erros comuns que brasileiros cometeriam (e como evitar).',
     tags: ['Python', 'FastAPI', 'Docker'],
@@ -28,14 +44,6 @@ const projectData = [
         img: '/web-portifolio/img/prj01.jpg',
         repoLink: 'https://github.com/kauanfeelipe/studyTerminal',
         siteLink: 'https://files-terminal.web.app/'
-      },
-      {
-        title: 'Web Portifólio cs1.6',
-        description: 'Portfólio desenvolvido com o tema do jogo Counter-Strike 1.6, utilizando React, JavaScript e CSS. O portfólio é responsivo e possui uma navegação intuitiva.',
-        tags: ['React', 'JavaScript', 'CSS'],
-        img: '/web-portifolio/img/prj03.png',
-        repoLink: 'https://github.com/kauanfeelipe/portifolioo',
-        siteLink: 'https://kauanfeelipe.github.io/portifolioo/'
       },
             {
         title: 'Barbearia Agendamentos',

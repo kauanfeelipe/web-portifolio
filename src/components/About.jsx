@@ -59,8 +59,8 @@ function About() {
   const [activeTab, setActiveTab] = useState('formations');
 
   return (
-    <section 
-      id="formacao" 
+    <section
+      id="sobre"
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
@@ -74,20 +74,20 @@ function About() {
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               style={{ color: 'var(--color-text-primary)' }}
             >
-              Minha{' '}
+              Sobre{' '}
               <span className="bg-gradient-secondary bg-clip-text text-transparent">
-                Jornada
+                Mim
               </span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 md:px-0"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              Uma visão da minha formação acadêmica, habilidades técnicas 
+              Uma visão da minha formação acadêmica, habilidades técnicas
               e evolução como desenvolvedor em formação.
             </motion.p>
           </div>
@@ -105,11 +105,10 @@ function About() {
                 <motion.button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-3 md:px-6 py-2 md:py-3 rounded-xl font-medium text-xs md:text-base transition-all duration-300 mx-0.5 md:mx-1 ${
-                    activeTab === tab.id 
-                      ? 'bg-gradient-primary text-white' 
+                  className={`px-3 md:px-6 py-2 md:py-3 rounded-xl font-medium text-xs md:text-base transition-all duration-300 mx-0.5 md:mx-1 ${activeTab === tab.id
+                      ? 'bg-gradient-primary text-white'
                       : 'hover:bg-white/5'
-                  }`}
+                    }`}
                   style={activeTab !== tab.id ? { color: 'var(--color-text-primary)' } : {}}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -133,21 +132,21 @@ function About() {
               className="max-w-4xl mx-auto"
             >
               <div className="text-center mb-12">
-                <h3 
+                <h3
                   className="text-3xl font-bold mb-4"
                   style={{ color: 'var(--color-text-primary)' }}
                 >
                   Formação Acadêmica e Cursos
                 </h3>
-                <p 
+                <p
                   className="text-lg"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   Minha jornada educacional e desenvolvimento profissional
                 </p>
               </div>
-              
-              <motion.div 
+
+              <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
                 variants={staggerContainer}
                 initial="hidden"
@@ -160,35 +159,34 @@ function About() {
                     className="card-interactive p-4 md:p-6"
                   >
                     <div className="flex items-center justify-between mb-4">
-                      <span 
+                      <span
                         className="text-sm font-medium px-3 py-1 rounded-full"
-                        style={{ 
+                        style={{
                           backgroundColor: 'var(--color-electric-blue)' + '20',
                           color: 'var(--color-electric-blue)'
                         }}
                       >
                         {item.level}
                       </span>
-                      <div className={`w-3 h-3 rounded-full ${
-                        item.period.includes('Cursando') ? 'bg-green-400' : 'bg-gray-400'
-                      }`} />
+                      <div className={`w-3 h-3 rounded-full ${item.period.includes('Cursando') ? 'bg-green-400' : 'bg-gray-400'
+                        }`} />
                     </div>
-                    
-                    <h4 
+
+                    <h4
                       className="text-xl font-bold mb-2"
                       style={{ color: 'var(--color-text-primary)' }}
                     >
                       {item.course}
                     </h4>
-                    
-                    <p 
+
+                    <p
                       className="text-lg font-medium mb-3"
                       style={{ color: 'var(--color-electric-blue)' }}
                     >
                       {item.institution}
                     </p>
-                    
-                    <p 
+
+                    <p
                       className="text-sm"
                       style={{ color: 'var(--color-text-muted)' }}
                     >
@@ -209,21 +207,21 @@ function About() {
               className="max-w-4xl mx-auto"
             >
               <div className="text-center mb-12">
-                <h3 
+                <h3
                   className="text-3xl font-bold mb-4"
                   style={{ color: 'var(--color-text-primary)' }}
                 >
                   Habilidades Técnicas
                 </h3>
-                <p 
+                <p
                   className="text-lg"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   Tecnologias e ferramentas que utilizo no desenvolvimento
                 </p>
               </div>
-              
-              <motion.div 
+
+              <motion.div
                 className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
                 variants={staggerContainer}
                 initial="hidden"
@@ -248,7 +246,7 @@ function About() {
                             <IconComponent />
                           </div>
                         )}
-                        <span 
+                        <span
                           className="text-xs md:text-sm font-medium"
                           style={{ color: 'var(--color-text-primary)' }}
                         >
@@ -271,21 +269,21 @@ function About() {
               className="max-w-4xl mx-auto"
             >
               <div className="text-center mb-12">
-                <h3 
+                <h3
                   className="text-3xl font-bold mb-4"
                   style={{ color: 'var(--color-text-primary)' }}
                 >
                   Competências Interpessoais
                 </h3>
-                <p 
+                <p
                   className="text-lg"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   Habilidades comportamentais que complementam minha expertise técnica
                 </p>
               </div>
-              
-              <motion.div 
+
+              <motion.div
                 className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
                 variants={staggerContainer}
                 initial="hidden"
@@ -305,7 +303,7 @@ function About() {
                     >
                       {['🤝', '🧩', '💡', '💬', '📚', '🔄', '👥', '🎯'][index % 8]}
                     </motion.div>
-                    <h4 
+                    <h4
                       className="font-semibold text-lg"
                       style={{ color: 'var(--color-text-primary)' }}
                     >

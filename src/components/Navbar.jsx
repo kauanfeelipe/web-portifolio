@@ -35,27 +35,35 @@ function Navbar() {
             &lt;Kauan Felipe /&gt;
           </a>
         </div>
-        
+
         {/* Espaço flexível para centralizar o menu mobile */}
         <div className="flex-1 md:hidden"></div>
 
         {/* Links para Desktop */}
-        <div className="hidden md:flex space-x-8">
-          <a href="#projetos" className="link-underline font-medium" style={{ color: 'var(--color-text-secondary)' }}>
-            Projetos
+        <div className="hidden md:flex space-x-8 items-center">
+          <a href="#projetos" className="nav-link font-mono text-sm uppercase tracking-wider font-semibold hover:text-white transition-all duration-300" style={{ color: 'var(--color-text-secondary)' }}>
+            <span className="text-blue-500 mr-1">01.</span> Projetos
           </a>
-          <a href="#formacao" className="link-underline font-medium" style={{ color: 'var(--color-text-secondary)' }}>
-            Jornada
+          <a href="#sobre" className="nav-link font-mono text-sm uppercase tracking-wider font-semibold hover:text-white transition-all duration-300" style={{ color: 'var(--color-text-secondary)' }}>
+            <span className="text-blue-500 mr-1">02.</span> Sobre
           </a>
-          <a href="#contato" className="link-underline font-medium" style={{ color: 'var(--color-text-secondary)' }}>
-            Contato
+          <a href="#contato" className="nav-link font-mono text-sm uppercase tracking-wider font-semibold hover:text-white transition-all duration-300" style={{ color: 'var(--color-text-secondary)' }}>
+            <span className="text-blue-500 mr-1">03.</span> Contato
+          </a>
+
+          <a
+            href="/web-portifolio/img/curri_kauanzera.pdf"
+            target="_blank"
+            className="px-4 py-2 text-sm font-mono text-blue-400 border border-blue-400 rounded hover:bg-blue-400/10 transition-colors"
+          >
+            Currículo
           </a>
         </div>
 
         {/* Botão do Menu Mobile */}
         <div className="md:hidden">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 rounded-lg glass glass-hover md:hidden"
             style={{ color: 'var(--color-text-primary)' }}
           >
@@ -66,30 +74,41 @@ function Navbar() {
 
       {/* Menu Mobile Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden glass border-t border-white/10">
-          <a 
-            href="#projetos" 
-            onClick={() => setIsMenuOpen(false)} 
-            className="block text-center py-4 font-medium transition-colors hover:bg-white/5"
-            style={{ color: 'var(--color-text-secondary)' }}
+        <div
+          className="md:hidden absolute top-full left-0 w-full flex flex-col items-center justify-center space-y-6 py-8 shadow-2xl border-b border-white/10"
+          style={{ backgroundColor: 'var(--color-bg-primary)' }}
+        >
+          <a
+            href="#projetos"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-xl font-mono font-bold tracking-wider hover:text-blue-400 transition-colors"
+            style={{ color: 'var(--color-text-primary)' }}
           >
-            Projetos
+            &lt;PROJETOS /&gt;
           </a>
-          <a 
-            href="#formacao" 
-            onClick={() => setIsMenuOpen(false)} 
-            className="block text-center py-4 font-medium transition-colors hover:bg-white/5"
-            style={{ color: 'var(--color-text-secondary)' }}
+          <a
+            href="#sobre"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-xl font-mono font-bold tracking-wider hover:text-blue-400 transition-colors"
+            style={{ color: 'var(--color-text-primary)' }}
           >
-            Jornada
+            &lt;SOBRE /&gt;
           </a>
-          <a 
-            href="#contato" 
-            onClick={() => setIsMenuOpen(false)} 
-            className="block text-center py-4 font-medium transition-colors hover:bg-white/5"
-            style={{ color: 'var(--color-text-secondary)' }}
+          <a
+            href="#contato"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-xl font-mono font-bold tracking-wider hover:text-blue-400 transition-colors"
+            style={{ color: 'var(--color-text-primary)' }}
           >
-            Contato
+            &lt;CONTATO /&gt;
+          </a>
+          <a
+            href="/web-portifolio/img/curri_kauanzera.pdf"
+            target="_blank"
+            onClick={() => setIsMenuOpen(false)}
+            className="px-6 py-3 text-lg font-mono text-blue-400 border border-blue-400 rounded hover:bg-blue-400/10 transition-colors mt-4"
+          >
+            Currículo
           </a>
         </div>
       )}

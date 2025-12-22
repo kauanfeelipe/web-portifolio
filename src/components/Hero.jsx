@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { 
-  FloatingParticles, 
-  ScrollReveal, 
-  MagneticButton, 
+import {
+  FloatingParticles,
+  ScrollReveal,
+  MagneticButton,
   staggerContainer,
   staggerItem
 } from './AnimationSystem';
@@ -27,18 +27,18 @@ const DownloadIcon = () => (
 
 function Hero() {
   return (
-    <section id="home" className="min-h-screen relative flex items-center overflow-hidden pt-20 md:pt-24 lg:pt-20" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
+    <section id="home" className="min-h-screen relative flex items-start md:items-center overflow-hidden pt-40 md:pt-0" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
       {/* Floating Particles Background */}
       <FloatingParticles />
-      
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20" />
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          
+
           {/* Left Column - Content */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 text-center lg:text-left"
             variants={staggerContainer}
             initial="hidden"
@@ -47,15 +47,15 @@ function Hero() {
             {/* Name with TypeAnimation */}
             <motion.div variants={staggerItem}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                <TypeAnimation 
-                  sequence={['Kauan Felipe', 1000, 'Kauan Felipe', 1000]} 
-                  wrapper="span" 
-                  speed={80} 
+                <TypeAnimation
+                  sequence={['<Kauan Felipe />', 1000, '<Kauan Felipe />', 1000]}
+                  wrapper="span"
+                  speed={50}
                   repeat={Infinity}
                   className="font-mono"
-                  style={{ 
-                    background: 'var(--gradient-primary)', 
-                    WebkitBackgroundClip: 'text', 
+                  style={{
+                    background: 'var(--gradient-primary)',
+                    WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text'
                   }}
@@ -64,7 +64,7 @@ function Hero() {
             </motion.div>
 
             {/* Subtitle */}
-            <motion.div 
+            <motion.div
               variants={staggerItem}
               className="mt-4 text-xl md:text-2xl font-semibold"
               style={{ color: 'var(--color-electric-blue)' }}
@@ -73,37 +73,37 @@ function Hero() {
             </motion.div>
 
             {/* Mobile Photo */}
-            <motion.div 
+            <motion.div
               variants={staggerItem}
               className="lg:hidden my-8 flex justify-center"
             >
               <div className="relative">
-                <motion.div 
+                <motion.div
                   className="w-56 h-56 rounded-full overflow-hidden relative"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
                   {/* Subtle Border */}
                   <div className="absolute inset-0 rounded-full p-1">
-                    <div 
+                    <div
                       className="w-full h-full rounded-full overflow-hidden"
-                      style={{ 
+                      style={{
                         background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(14, 165, 233, 0.3))',
                         padding: '2px'
                       }}
                     >
                       <div className="w-full h-full rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
-                        <img 
-                          src='/web-portifolio/img/minha-foto.png' 
-                          alt="Kauan Felipe" 
+                        <img
+                          src='/web-portifolio/img/minha-foto.png'
+                          alt="Kauan Felipe"
                           className="w-full h-full object-cover"
                         />
                       </div>
-              </div>
-            </div>
+                    </div>
+                  </div>
 
                   {/* Subtle Glow Effect */}
-                  <div 
+                  <div
                     className="absolute -inset-2 rounded-full opacity-20 blur-xl -z-10"
                     style={{ background: 'var(--gradient-primary)' }}
                   />
@@ -112,19 +112,19 @@ function Hero() {
             </motion.div>
 
             {/* Description */}
-            <motion.p 
+            <motion.p
               variants={staggerItem}
               className="mt-6 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto lg:mx-0 px-4 lg:px-0"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              Desenvolvedor em formação, transformando ideias em <span className="font-semibold bg-gradient-primary bg-clip-text text-transparent">soluções digitais inovadoras</span>. 
-              Cursando Ciência da Computação na UNIFRAN, combino <span className="font-semibold" style={{ color: 'var(--color-cyber-green)' }}>criatividade</span> e 
+              Transformando ideias em <span className="font-semibold bg-gradient-primary bg-clip-text text-transparent">soluções digitais inovadoras</span>.
+              Cursando Ciência da Computação na UNIFRAN, combino <span className="font-semibold" style={{ color: 'var(--color-cyber-green)' }}>criatividade</span> e
               <span className="font-semibold" style={{ color: 'var(--color-electric-blue)' }}> tecnologia</span> para desenvolver projetos que fazem a diferença no mundo digital.
             </motion.p>
 
 
             {/* Action Buttons */}
-            <motion.div 
+            <motion.div
               variants={staggerItem}
               className="mt-8 px-4 lg:px-0"
             >
@@ -132,10 +132,10 @@ function Hero() {
               <div className="flex flex-col gap-3 sm:hidden">
                 {/* Top Row - 2 buttons */}
                 <div className="flex gap-3 justify-center">
-                  <MagneticButton 
+                  <MagneticButton
                     as="a"
-                    href="/web-portifolio/img/curri_kauanzera.pdf" 
-                    target="_blank" 
+                    href="/web-portifolio/img/curri_kauanzera.pdf"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary group text-sm flex-1 max-w-[140px]"
                   >
@@ -149,10 +149,10 @@ function Hero() {
                     />
                   </MagneticButton>
 
-                  <MagneticButton 
+                  <MagneticButton
                     as="a"
-                    href="https://github.com/kauanfeelipe" 
-                    target="_blank" 
+                    href="https://github.com/kauanfeelipe"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="btn-secondary text-sm flex-1 max-w-[140px]"
                   >
@@ -163,10 +163,10 @@ function Hero() {
 
                 {/* Bottom Row - 1 button centered */}
                 <div className="flex justify-center">
-                  <MagneticButton 
+                  <MagneticButton
                     as="a"
-                    href="https://www.linkedin.com/in/kauanfeelipe/" 
-                    target="_blank" 
+                    href="https://www.linkedin.com/in/kauanfeelipe/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="btn-secondary text-sm max-w-[140px]"
                   >
@@ -178,10 +178,10 @@ function Hero() {
 
               {/* Desktop Layout */}
               <div className="hidden sm:flex gap-3 justify-center lg:justify-start">
-                <MagneticButton 
+                <MagneticButton
                   as="a"
-                  href="/web-portifolio/img/curri_kauanzera.pdf" 
-                  target="_blank" 
+                  href="/web-portifolio/img/curri_kauanzera.pdf"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary group text-sm md:text-base"
                 >
@@ -195,10 +195,10 @@ function Hero() {
                   />
                 </MagneticButton>
 
-                <MagneticButton 
+                <MagneticButton
                   as="a"
-                  href="https://github.com/kauanfeelipe" 
-                  target="_blank" 
+                  href="https://github.com/kauanfeelipe"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-sm md:text-base"
                 >
@@ -206,10 +206,10 @@ function Hero() {
                   <span>GitHub</span>
                 </MagneticButton>
 
-                <MagneticButton 
+                <MagneticButton
                   as="a"
-                  href="https://www.linkedin.com/in/kauanfeelipe/" 
-                  target="_blank" 
+                  href="https://www.linkedin.com/in/kauanfeelipe/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-sm md:text-base"
                 >
@@ -222,7 +222,7 @@ function Hero() {
           </motion.div>
 
           {/* Right Column - Enhanced Photo for Desktop */}
-          <motion.div 
+          <motion.div
             className="hidden lg:flex lg:w-1/2 justify-center items-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -261,30 +261,30 @@ function Hero() {
               </motion.div>
 
               {/* Main Photo */}
-              <motion.div 
+              <motion.div
                 className="relative w-80 h-80 rounded-full overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 {/* Subtle Border */}
-                <div 
+                <div
                   className="absolute inset-0 rounded-full"
-                  style={{ 
+                  style={{
                     background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(14, 165, 233, 0.3))',
                     padding: '3px'
                   }}
                 >
                   <div className="w-full h-full rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
-                    <img 
-                      src="/web-portifolio/img/minha-foto.png" 
-                      alt="Kauan Felipe" 
+                    <img
+                      src="/web-portifolio/img/minha-foto.png"
+                      alt="Kauan Felipe"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
-            </div>
-          </div>
+                  </div>
+                </div>
 
                 {/* Subtle Glow Effect */}
-                <div 
+                <div
                   className="absolute -inset-4 rounded-full opacity-15 blur-2xl -z-10"
                   style={{ background: 'var(--gradient-primary)' }}
                 />
