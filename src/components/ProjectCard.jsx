@@ -96,7 +96,7 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
               </div>
 
               {/* Corpo do Modal */}
-              <div className="p-6 md:p-8 flex flex-col md:flex-row gap-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
+              <div className="p-3 md:p-8 flex flex-col md:flex-row gap-4 md:gap-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
 
                 <div className="w-full md:w-1/2">
                   <div className="border border-dim-gray p-1 relative group">
@@ -104,13 +104,13 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
                     <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=')] opacity-20 pointer-events-none"></div>
                   </div>
 
-                  <div className="mt-6 flex flex-col gap-4">
+                  <div className="mt-3 md:mt-6 flex flex-col gap-2 md:gap-4">
                     {siteLink && (
                       <a
                         href={siteLink}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center justify-center px-4 py-3 bg-neon-green text-black font-bold font-mono hover:bg-white transition-colors"
+                        className="flex items-center justify-center px-4 py-1.5 md:py-3 bg-neon-green text-black font-bold font-mono hover:bg-white transition-colors text-xs md:text-base uppercase tracking-wider"
                       >
                         &gt; EXECUTE_PROJECT.EXE
                       </a>
@@ -120,7 +120,7 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
                         href={repoLink}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center justify-center px-4 py-3 border border-dim-gray text-dim-gray font-mono hover:border-neon-green hover:text-neon-green transition-colors"
+                        className="flex items-center justify-center px-4 py-1.5 md:py-3 border border-dim-gray text-dim-gray font-mono hover:border-neon-green hover:text-neon-green transition-colors text-xs md:text-base uppercase tracking-wider"
                       >
                         &gt; VIEW_SOURCE_CODE
                       </a>
@@ -129,7 +129,7 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
                 </div>
 
                 <div className="w-full md:w-1/2 flex flex-col">
-                  <h2 className="text-3xl font-pixel text-white mb-4">{title}</h2>
+                  <h2 className="text-2xl md:text-3xl font-pixel text-white mb-3 md:mb-4">{title}</h2>
                   <p className="font-mono text-dim-gray leading-relaxed mb-6 text-sm md:text-base">
                     {description}
                   </p>

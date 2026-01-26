@@ -7,7 +7,7 @@ function About() {
   const [activeTab, setActiveTab] = useState('skills');
 
   return (
-    <section id="sobre" className="py-20 relative bg-terminal-black">
+    <section id="sobre" className="py-10 md:py-20 relative bg-terminal-black">
       <div className="container mx-auto px-4 md:px-6">
 
         <div className="border border-dim-gray p-1 bg-terminal-dark/50">
@@ -21,7 +21,7 @@ function About() {
             </div>
           </div>
 
-          <div className="p-4 md:p-8 flex flex-col md:flex-row gap-8">
+          <div className="p-4 md:p-8 flex flex-col md:flex-row gap-4 md:gap-8">
 
             {/* Barra Lateral / Abas */}
             <div className="w-full md:w-1/4 flex flex-col gap-2">
@@ -55,7 +55,7 @@ function About() {
             </div>
 
             {/* Exibição de Conteúdo */}
-            <div className="w-full md:w-3/4 min-h-[400px]">
+            <div className="w-full md:w-3/4 min-h-[300px] md:min-h-[400px]">
               <AnimatePresence mode="wait">
 
                 {/* SKILLS */}
