@@ -71,17 +71,17 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowModal(false)}
           >
             <motion.div
-              className="w-full max-w-4xl bg-terminal-black border border-neon-green shadow-[0_0_20px_rgba(0,255,65,0.2)]"
-              initial={{ scale: 0.9, y: 20 }}
+              className="w-full max-w-4xl bg-terminal-black border border-neon-green shadow-lg flex flex-col max-h-[90vh] md:max-h-[80vh]"
+              initial={{ scale: 0.95, y: 10 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
+              exit={{ scale: 0.95, y: 10 }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cabeçalho do Modal */}
@@ -96,7 +96,7 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
               </div>
 
               {/* Corpo do Modal */}
-              <div className="p-3 md:p-8 flex flex-col md:flex-row gap-4 md:gap-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
+              <div className="p-3 md:p-8 flex flex-col md:flex-row gap-4 md:gap-8 overflow-y-auto custom-scrollbar flex-1">
 
                 <div className="w-full md:w-1/2">
                   <div className="border border-dim-gray p-1 relative group">
@@ -130,23 +130,9 @@ const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
 
                 <div className="w-full md:w-1/2 flex flex-col">
                   <h2 className="text-2xl md:text-3xl font-pixel text-white mb-3 md:mb-4">{title}</h2>
-                  <p className="font-mono text-dim-gray leading-relaxed mb-6 text-sm md:text-base">
+                  <p className="font-mono text-dim-gray leading-relaxed mb-4 text-sm md:text-base">
                     {description}
                   </p>
-
-                  <div className="border-t border-dim-gray pt-6 mt-auto">
-                    <h4 className="font-pixel text-neon-cyan mb-3 text-lg">SYSTEM_DEPENDENCIES:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="text-xs font-mono text-neon-green border border-neon-green/30 px-3 py-1 bg-neon-green/5"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
               </div>
