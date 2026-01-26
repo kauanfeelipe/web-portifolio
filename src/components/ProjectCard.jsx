@@ -1,310 +1,154 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { InteractiveCard } from './AnimationSystem';
 
-// Ícones para os links
-const ExternalLinkIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-);
-
-const CodeIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-);
-
-function ProjectCard({ title, description, tags, img, repoLink, siteLink }) {
-  const [isHovered, setIsHovered] = useState(false);
+const ProjectCard = ({ title, description, tags, img, repoLink, siteLink }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <motion.div
-        className="group relative h-full"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.3 }}
+        className="group relative h-full bg-terminal-black border border-dim-gray hover:border-neon-green transition-colors duration-300 flex flex-col"
+        whileHover={{ y: -4 }}
       >
-        {/* Main Card */}
-        <div 
-          className="card-interactive h-full flex flex-col overflow-hidden relative cursor-pointer"
+        {/* Cabeçalho do Terminal */}
+        <div className="flex items-center justify-between px-3 py-2 border-b border-dim-gray bg-terminal-dark group-hover:bg-neon-green/10 transition-colors">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          <div className="font-mono text-xs text-dim-gray group-hover:text-neon-green truncate max-w-[150px]">
+            ./{title.replace(/\s+/g, '_').toLowerCase()}.exe
+          </div>
+        </div>
+
+        {/* Wrapper do Conteúdo para alternar o Modal */}
+        <div
           onClick={() => setShowModal(true)}
+          className="cursor-pointer flex-grow flex flex-col"
         >
-          {/* Gradient Border Animation */}
-          <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-sm" />
-          
-          {/* Card Content */}
-          <div className="relative z-10 h-full flex flex-col bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden">
-            {/* Image Container with Overlay */}
-            <div className="relative overflow-hidden">
-              <motion.img 
-                src={img} 
-                alt={`Projeto ${title}`}
-                className="w-full aspect-video object-cover"
-                loading="lazy"
-                decoding="async"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5 }}
-              />
-              
-              {/* Image Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Floating Action Buttons - Desktop apenas */}
-              <motion.div
-                className="absolute top-4 right-4 flex gap-2 hidden md:flex"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ 
-                  opacity: isHovered ? 1 : 0, 
-                  y: isHovered ? 0 : -20 
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {siteLink && (
-                  <motion.a
-                    href={siteLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass p-2 rounded-lg hover:scale-110 transition-transform"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLinkIcon />
-                  </motion.a>
-                )}
-                {repoLink && (
-                  <motion.a
-                    href={repoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass p-2 rounded-lg hover:scale-110 transition-transform"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <CodeIcon />
-                  </motion.a>
-                )}
-              </motion.div>
-
-              {/* Tech Stack Preview */}
-              <motion.div
-                className="absolute bottom-4 left-4 flex gap-1"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: isHovered ? 1 : 0, 
-                  y: isHovered ? 0 : 20 
-                }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              >
-                {tags.slice(0, 3).map((tag, index) => (
-                  <motion.span
-                    key={tag}
-                    className="glass px-2 py-1 text-xs font-mono font-semibold rounded"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
-                    {tag}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Mobile Action Buttons - Visíveis apenas em mobile */}
-            <div className="md:hidden p-4 pb-2">
-              <div className="flex justify-center gap-3">
-                {siteLink && (
-                  <a
-                    href={siteLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass p-3 rounded-lg hover:scale-110 transition-transform flex items-center gap-2"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLinkIcon />
-                    <span className="text-sm font-medium">Ver Site</span>
-                  </a>
-                )}
-                {repoLink && (
-                  <a
-                    href={repoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass p-3 rounded-lg hover:scale-110 transition-transform flex items-center gap-2"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <CodeIcon />
-                    <span className="text-sm font-medium">Código</span>
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-6 pt-2 md:pt-6 flex flex-col flex-grow">
-              {/* Title */}
-              <motion.h3 
-                className="text-xl lg:text-2xl font-bold mb-3 bg-gradient-primary bg-clip-text text-transparent"
-                layout
-              >
-                {title}
-              </motion.h3>
-
-              {/* Description */}
-              <motion.p 
-                className="text-sm leading-relaxed mb-4 flex-grow"
-                style={{ color: 'var(--color-text-secondary)' }}
-                layout
-              >
-                {description}
-              </motion.p>
-
-              {/* Tech Tags */}
-              <motion.div 
-                className="flex flex-wrap gap-2"
-                layout
-              >
-                {tags.map((tag, index) => (
-                  <motion.span
-                    key={tag}
-                    className="px-3 py-1 rounded-full text-xs font-medium font-mono"
-                    style={{
-                      background: 'var(--glass-bg)',
-                      border: '1px solid var(--glass-border)',
-                      color: 'var(--color-electric-blue)'
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    {tag}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Hover Effect Indicator */}
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              style={{ transformOrigin: 'left' }}
+          {/* Imagem */}
+          <div className="relative overflow-hidden w-full aspect-video border-b border-dim-gray">
+            <div className="absolute inset-0 bg-neon-green/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-overlay" />
+            <img
+              src={img}
+              alt={title}
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
+            {/* Efeito Scanlines */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=')] opacity-50 pointer-events-none"></div>
+          </div>
+
+          <div className="p-4 flex flex-col flex-grow bg-terminal-black/80">
+            <h3 className="text-xl font-bold font-pixel text-white mb-2 group-hover:text-neon-green transition-colors">
+              {title}
+            </h3>
+
+            <p className="font-mono text-sm text-dim-gray mb-4 line-clamp-3 flex-grow">
+              {description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {tags.slice(0, 3).map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="text-xs font-mono text-neon-cyan border border-neon-cyan/30 px-2 py-1"
+                >
+                  {tag}
+                </span>
+              ))}
+              {tags.length > 3 && (
+                <span className="text-xs font-mono text-dim-gray px-2 py-1">+{tags.length - 3}</span>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>
 
-      {/* Modal Preview */}
+
+      {/* MODAL POPUP - Estilo Retro */}
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowModal(false)}
           >
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-            
-            {/* Modal Content */}
             <motion.div
-              className="relative z-10 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              className="w-full max-w-4xl bg-terminal-black border border-neon-green shadow-[0_0_20px_rgba(0,255,65,0.2)]"
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="card-interactive p-0 m-0">
-                {/* Header */}
-                <div className="relative">
-                  <img 
-                    src={img} 
-                    alt={`Projeto ${title}`}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <button
-                    onClick={() => setShowModal(false)}
-                    className="absolute top-4 right-4 glass p-2 rounded-lg hover:scale-110 transition-transform"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <line x1="18" y1="6" x2="6" y2="18"></line>
-                      <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                  </button>
+              {/* Cabeçalho do Modal */}
+              <div className="flex items-center justify-between px-4 py-2 bg-neon-green text-black font-bold font-mono">
+                <span>USER_ACCESS: {title.toUpperCase()}</span>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="hover:bg-black hover:text-neon-green px-2 py-0.5 border border-transparent hover:border-black transition-colors"
+                >
+                  [X]
+                </button>
+              </div>
+
+              {/* Corpo do Modal */}
+              <div className="p-6 md:p-8 flex flex-col md:flex-row gap-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
+
+                <div className="w-full md:w-1/2">
+                  <div className="border border-dim-gray p-1 relative group">
+                    <img src={img} alt={title} className="w-full h-auto grayscale-0" />
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=')] opacity-20 pointer-events-none"></div>
+                  </div>
+
+                  <div className="mt-6 flex flex-col gap-4">
+                    {siteLink && (
+                      <a
+                        href={siteLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-center px-4 py-3 bg-neon-green text-black font-bold font-mono hover:bg-white transition-colors"
+                      >
+                        &gt; EXECUTE_PROJECT.EXE
+                      </a>
+                    )}
+                    {repoLink && (
+                      <a
+                        href={repoLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-center px-4 py-3 border border-dim-gray text-dim-gray font-mono hover:border-neon-green hover:text-neon-green transition-colors"
+                      >
+                        &gt; VIEW_SOURCE_CODE
+                      </a>
+                    )}
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-8">
-                  <h2 className="text-3xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-                    {title}
-                  </h2>
-                  
-                  <p className="text-lg mb-6 leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                <div className="w-full md:w-1/2 flex flex-col">
+                  <h2 className="text-3xl font-pixel text-white mb-4">{title}</h2>
+                  <p className="font-mono text-dim-gray leading-relaxed mb-6 text-sm md:text-base">
                     {description}
                   </p>
 
-                  {/* Enhanced Tech Stack */}
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>
-                      Tecnologias Utilizadas
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {tags.map((tag, index) => (
-                        <motion.span
-                          key={tag}
-                          className="px-4 py-2 rounded-lg text-sm font-medium"
-                          style={{
-                            background: 'var(--gradient-primary)',
-                            color: 'white'
-                          }}
-                          whileHover={{ scale: 1.05 }}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1 }}
+                  <div className="border-t border-dim-gray pt-6 mt-auto">
+                    <h4 className="font-pixel text-neon-cyan mb-3 text-lg">SYSTEM_DEPENDENCIES:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="text-xs font-mono text-neon-green border border-neon-green/30 px-3 py-1 bg-neon-green/5"
                         >
                           {tag}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
                   </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-4">
-                    {siteLink && (
-                      <motion.a
-                        href={siteLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary flex-1 justify-center"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <ExternalLinkIcon />
-                        Ver Projeto
-                      </motion.a>
-                    )}
-                    {repoLink && (
-                      <motion.a
-                        href={repoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-secondary flex-1 justify-center"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <CodeIcon />
-                        Ver Código
-                      </motion.a>
-                    )}
-                  </div>
                 </div>
+
               </div>
             </motion.div>
           </motion.div>
@@ -312,6 +156,6 @@ function ProjectCard({ title, description, tags, img, repoLink, siteLink }) {
       </AnimatePresence>
     </>
   );
-}
+};
 
 export default ProjectCard;

@@ -1,21 +1,29 @@
-// src/App.jsx
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import About from './components/About';
-import Contact from './components/Contact'; // Importe a seção de Contato
-import Footer from './components/Footer';   // Importe o Rodapé
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen font-inter" style={{ backgroundColor: 'var(--color-bg-primary)', color: 'var(--color-text-primary)' }}>
+    <div className="min-h-screen relative">
+      <div className="crt-overlay" />
       <Navbar />
-      <main>
-        <Hero />
-        <Projects />
-        <About />
-        <Contact />
+      <main className="relative z-10 pt-20">
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="projetos">
+          <Projects />
+        </section>
+        <section id="sobre">
+          <About />
+        </section>
+        <section id="contato">
+          <Contact />
+        </section>
       </main>
       <Footer />
     </div>
