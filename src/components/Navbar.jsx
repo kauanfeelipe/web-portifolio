@@ -43,7 +43,7 @@ function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="group flex items-center gap-2 text-sm text-dim-gray hover:text-neon-green transition-colors"
+              className="group flex items-center gap-2 text-sm text-gray-300 hover:text-neon-green transition-colors hover:animate-glitch hover:text-glow-green"
             >
               <span className="opacity-0 group-hover:opacity-100 text-neon-pink">&gt;</span>
               <span className="group-hover:underline decoration-neon-green decoration-2 underline-offset-4">

@@ -10,14 +10,14 @@ export const formationData = [
         level: 'CERTIFICATION',
         course: 'Backend Python Training',
         institution: 'DIO',
-        period: '2026',
+        period: '2025',
         status: 'IN_PROGRESS'
     },
     {
         level: 'CERTIFICATION',
         course: 'ReactJS / Tailwind CSS',
         institution: 'Udemy',
-        period: '2026',
+        period: '2025',
         status: 'IN_PROGRESS'
     },
     {
@@ -31,9 +31,9 @@ export const formationData = [
 
 export const hardSkills = [
     { name: 'Python', level: 90 },
-    { name: 'JavaScript', level: 95 },
+    { name: 'fastAPI', level: 95 },
     { name: 'React', level: 85 },
-    { name: 'HTML/CSS', level: 98 },
+    { name: 'JavaScript', level: 98 },
     { name: 'Tailwind', level: 90 },
     { name: 'Java', level: 60 },
     { name: 'Git', level: 85 },

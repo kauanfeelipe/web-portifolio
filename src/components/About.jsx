@@ -7,7 +7,7 @@ function About() {
   const [activeTab, setActiveTab] = useState('skills');
 
   return (
-    <section id="sobre" className="py-10 md:py-20 relative bg-terminal-black">
+    <section id="sobre" className="py-10 md:py-20 relative bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
 
         <div className="border border-dim-gray p-1 bg-terminal-dark/50">

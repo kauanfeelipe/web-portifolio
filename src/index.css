@@ -96,10 +96,134 @@ h6 {
   @apply border border-dim-gray bg-terminal-dark/80 backdrop-blur-sm p-4 hover:border-neon-green transition-colors duration-300;
 }
 
+.clip-path-cyberpunk {
+  clip-path: polygon(0 10px,
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%);
+}
+
 /* Horizontal Scrollbar Customization for Mobile */
 .scrollbar-thin::-webkit-scrollbar {
   height: 4px;
   /* Horizontal scrollbar height */
+}
+
+/* Floppy Disk Profile Frame - Cyberpunk Edition */
+.floppy-disk {
+  width: 100%;
+  max-width: 250px;
+  aspect-ratio: 1 / 1;
+  background-color: #111;
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid #333;
+  box-shadow: 10px 10px 0 rgba(0, 255, 65, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .floppy-disk {
+    max-width: 320px;
+  }
+}
+
+.floppy-disk:hover {
+  box-shadow: 15px 15px 0 rgba(0, 255, 65, 0.2);
+  border-color: #00ff41;
+}
+
+.floppy-top {
+  width: 100%;
+  height: 28%;
+  /* Converted from 90px/320px */
+  background-color: #1a1a1a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid #333;
+  z-index: 10;
+}
+
+.floppy-shutter {
+  width: 56%;
+  /* Converted from 180px/320px */
+  height: 100%;
+  background: linear-gradient(180deg, #222 0%, #444 20%, #222 40%, #444 60%, #222 80%, #111 100%);
+  margin: 0 auto;
+  border: 1px solid #555;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floppy-disk:hover .floppy-shutter {
+  transform: translateX(20%);
+}
+
+.floppy-shutter::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: 16%;
+  height: 60%;
+  background-color: #0a0a0a;
+  border-radius: 2px;
+}
+
+.floppy-label-area {
+  position: absolute;
+  top: 32%;
+  /* Converted from 100px/320px */
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  background-color: #0a0a0a;
+  border: 1px dashed #333;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* Sticker/Label decoration */
+.floppy-sticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  /* Relative height */
+  min-height: 30px;
+  background-color: #222;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floppy-notch {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #0a0a0a;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+/* Profile Image positioning within disk */
+.floppy-img-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
 }
 
 .scrollbar-track-transparent::-webkit-scrollbar-track {

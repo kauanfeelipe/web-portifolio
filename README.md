@@ -2,7 +2,7 @@
 
 > **"Code is poetry. Systems are art."**
 
-Portfólio pessoal desenvolvido com uma estética **Cyberpunk / Terminal**, simulando uma interface de linha de comando interativa e moderna. Focado em demonstrar minhas habilidades como **Engenheiro de Software** e **Designer UI/UX**.
+Portfólio pessoal desenvolvido com uma estética **Cyberpunk / Terminal**, simulando uma interface de linha de comando interativa e moderna
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)

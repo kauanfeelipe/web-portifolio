@@ -6,7 +6,7 @@ function Contact() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section id="contato" className="py-20 relative bg-terminal-black border-t border-dim-gray">
+    <section id="contato" className="py-20 relative bg-terminal-black/90 backdrop-blur-sm border-t border-dim-gray">
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
 
@@ -68,7 +68,7 @@ function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between text-white hover:text-neon-green group"
                   >
-                    <span>github.com/kauanfeelipe</span>
+                    <span className="truncate max-w-[200px] md:max-w-none">github.com/kauanfeelipe</span>
                     <span className="group-hover:translate-x-1 transition-transform">-&gt;</span>
                   </a>
                 </div>
@@ -82,7 +82,7 @@ function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between text-white hover:text-neon-cyan group"
                   >
-                    <span>linkedin.com/in/kauanfeelipe</span>
+                    <span className="truncate max-w-[200px] md:max-w-none">linkedin.com/in/kauanfeelipe</span>
                     <span className="group-hover:translate-x-1 transition-transform">-&gt;</span>
                   </a>
                 </div>

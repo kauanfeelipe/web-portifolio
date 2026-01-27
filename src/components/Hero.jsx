@@ -1,5 +1,6 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
+import FloppyProfile from './FloppyProfile';
 
 const Hero = () => {
   return (
@@ -35,7 +36,7 @@ const Hero = () => {
               wrapper="div"
               cursor={true}
               repeat={0}
-              className="text-dim-gray text-xs md:text-base"
+              className="text-neon-green text-xs md:text-base font-bold"
             />
           </div>
 
@@ -61,7 +62,7 @@ const Hero = () => {
             <span>]</span>
           </div>
 
-          <p className="font-mono text-gray-400 max-w-lg leading-relaxed text-xs md:text-base">
+          <p className="font-mono text-gray-300 max-w-lg leading-relaxed text-xs md:text-base">
             // Transforming ideas into digital reality.
             <br />
             // Combining <span className="text-amber-alert">logic</span> and <span className="text-neon-pink">creativity</span> to build robust systems.
@@ -88,34 +89,9 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Imagem de Perfil com Glitch */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
-          <div className="relative w-48 h-48 md:w-80 md:h-80 group">
-
-            {/* Camadas de Glitch */}
-            <div className="absolute inset-0 bg-neon-green opacity-20 translate-x-1 translate-y-1 group-hover:animate-glitch"></div>
-            <div className="absolute inset-0 bg-neon-pink opacity-20 -translate-x-1 -translate-y-1 group-hover:animate-glitch animation-delay-500"></div>
-
-            {/* Container Principal da Imagem */}
-            <div className="relative w-full h-full border-2 border-dim-gray bg-terminal-dark overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-              <img
-                src="/web-portifolio/img/minha-foto.png"
-                alt="Kauan Felipe Profile"
-                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-700"
-              />
-
-              {/* Overlay de Scanline */}
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=')] opacity-20 pointer-events-none"></div>
-            </div>
-
-            {/* Elementos Decorativos */}
-            <div className="absolute -bottom-4 -right-4 font-mono text-xs text-dim-gray">
-              IMG_001.JPG
-            </div>
-            <div className="absolute -top-4 -left-4 font-mono text-xs text-neon-green">
-              [ LOADED ]
-            </div>
-          </div>
+        {/* Imagem de Perfil com Glitch (Floppy Disk Style) */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative mt-12 lg:mt-0">
+          <FloppyProfile />
         </div>
 
       </div>
